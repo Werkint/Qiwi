@@ -28,7 +28,7 @@ class Client extends \SoapClient {
 	protected $classmap;
 
 	protected function createDefaultClassmap() {
-		$namespace = __NAMESPACE__ . '\ServerMethods';
+		$namespace = 'IShop\ServerMethods';
 		$this->classmap = array();
 		foreach ($this->classmapMethods as $method => $binding) {
 			$this->classmap[$method] = $namespace . '\\' . $binding;
