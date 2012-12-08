@@ -49,9 +49,12 @@ class Client {
 
 	/**
 	 * Обрабатывает входящий запрос
+	 * @param callable $callback
 	 */
-	public function processRequest() {
-		return $this->getServer()->processRequest();
+	public function processRequest(callable $callback) {
+		$this->getServer()->processRequest(
+			$callback
+		);
 	}
 
 	/**
