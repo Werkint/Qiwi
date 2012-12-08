@@ -16,22 +16,22 @@ class SoapClient extends \SoapClient {
 	const SERVER_URL = 'http://server.ishop.mw.ru/';
 
 	protected $classmapMethods = array(
-		'checkBill',
-		'checkBillResponse',
-		'getBillList',
-		'getBillListResponse',
-		'cancelBill',
-		'cancelBillResponse',
-		'createBill',
-		'createBillResponse',
+		'checkBill'           => 'CheckBill',
+		'checkBillResponse'   => 'CheckBillResponse',
+		'cancelBill'          => 'CancelBill',
+		'cancelBillResponse'  => 'CancelBillResponse',
+		'createBill'          => 'CreateBill',
+		'createBillResponse'  => 'CreateBillResponse',
+		'getBillList'         => 'GetBillList',
+		'getBillListResponse' => 'GetBillListResponse',
 	);
 	protected $classmap;
 
 	protected function createDefaultClassmap() {
 		$namespace = __NAMESPACE__ . '\ServerMethods';
 		$this->classmap = array();
-		foreach ($this->classmapMethods as $method) {
-			$this->classmap[$method] = $namespace . '\\' . $method;
+		foreach ($this->classmapMethods as $method => $binding) {
+			$this->classmap[$method] = $namespace . '\\' . $binding;
 		}
 	}
 
@@ -44,10 +44,10 @@ class SoapClient extends \SoapClient {
 	/**
 	 *
 	 *
-	 * @param S\checkBill $parameters
-	 * @return S\checkBillResponse
+	 * @param S\CheckBill $parameters
+	 * @return S\CheckBillResponse
 	 */
-	public function checkBill(S\checkBill $parameters) {
+	public function checkBill(S\CheckBill $parameters) {
 		return $this->__soapCall('checkBill', array($parameters), array(
 				'uri'        => static::SERVER_URL,
 				'soapaction' => '',
@@ -58,10 +58,10 @@ class SoapClient extends \SoapClient {
 	/**
 	 *
 	 *
-	 * @param S\getBillList $parameters
-	 * @return S\getBillListResponse
+	 * @param S\GetBillList $parameters
+	 * @return S\GetBillListResponse
 	 */
-	public function getBillList(S\getBillList $parameters) {
+	public function getBillList(S\GetBillList $parameters) {
 		return $this->__soapCall('getBillList', array($parameters), array(
 				'uri'        => static::SERVER_URL,
 				'soapaction' => '',
@@ -72,10 +72,10 @@ class SoapClient extends \SoapClient {
 	/**
 	 *
 	 *
-	 * @param S\cancelBill $parameters
-	 * @return S\cancelBillResponse
+	 * @param S\CancelBill $parameters
+	 * @return S\CancelBillResponse
 	 */
-	public function cancelBill(S\cancelBill $parameters) {
+	public function cancelBill(S\CancelBill $parameters) {
 		return $this->__soapCall('cancelBill', array($parameters), array(
 				'uri'        => static::SERVER_URL,
 				'soapaction' => '',
@@ -86,10 +86,10 @@ class SoapClient extends \SoapClient {
 	/**
 	 *
 	 *
-	 * @param S\createBill $parameters
-	 * @return S\createBillResponse
+	 * @param S\CreateBill $parameters
+	 * @return S\CreateBillResponse
 	 */
-	public function createBill(S\createBill $parameters) {
+	public function createBill(S\CreateBill $parameters) {
 		return $this->__soapCall('createBill', array($parameters), array(
 				'uri'        => static::SERVER_URL,
 				'soapaction' => '',

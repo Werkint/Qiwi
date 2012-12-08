@@ -40,7 +40,7 @@ class Client {
 	public function createBill(
 		$phone, $amount, $txn_id, $comment, $lifetime = '', $alarm = false, $create = true
 	) {
-		$query = new SM\createBill();
+		$query = new SM\CreateBill();
 		$query->login = $this->login;
 		$query->password = $this->password;
 
@@ -63,7 +63,7 @@ class Client {
 	 * @return int
 	 */
 	public function cancelBill($txn_id) {
-		$query = new SM\cancelBill();
+		$query = new SM\CancelBill();
 		$query->login = $this->login;
 		$query->password = $this->password;
 
@@ -77,10 +77,10 @@ class Client {
 	/**
 	 * Проверяет состояние выписанного счета
 	 * @param string $txn_id
-	 * @return SM\checkBillResponse Код счета
+	 * @return SM\CheckBillResponse Код счета
 	 */
 	public function checkBill($txn_id) {
-		$query = new SM\checkBill();
+		$query = new SM\CheckBill();
 		$query->login = $this->login;
 		$query->password = $this->password;
 
