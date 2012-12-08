@@ -2,5 +2,6 @@
 namespace IShop\ServerMethods;
 
 class createBillResponse {
-	public $createBillResult; // int
+	/** @var int */
+	public $createBillResult;
 }

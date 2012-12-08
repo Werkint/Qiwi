@@ -1,10 +1,20 @@
 <?php
 namespace IShop\ServerMethods;
+use IShop\Status\StatusBill;
 
 class checkBillResponse {
-	public $user; // string
-	public $amount; // string
-	public $date; // string
-	public $lifetime; // string
-	public $status; // int
+	/** @var string */
+	public $user;
+
+	/** @var string */
+	public $amount;
+
+	/** @var string */
+	public $date;
+
+	/** @var string */
+	public $lifetime;
+
+	/** @var int|StatusBill */
+	public $status;
 }

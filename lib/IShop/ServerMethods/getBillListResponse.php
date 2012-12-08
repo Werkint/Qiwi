@@ -2,6 +2,9 @@
 namespace IShop\ServerMethods;
 
 class getBillListResponse {
-	public $txns; // string
-	public $count; // int
+	/** @var string */
+	public $txns;
+
+	/** @var int */
+	public $count;
 }

@@ -2,7 +2,12 @@
 namespace IShop\ServerMethods;
 
 class checkBill {
-	public $login; // string
-	public $password; // string
-	public $txn; // string
+	/** @var string */
+	public $login;
+
+	/** @var string */
+	public $password;
+
+	/** @var string */
+	public $txn;
 }

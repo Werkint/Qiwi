@@ -2,5 +2,6 @@
 namespace IShop\ServerMethods;
 
 class cancelBillResponse {
-	public $cancelBillResult; // int
+	/** @var int */
+	public $cancelBillResult;
 }

@@ -28,13 +28,13 @@ class Client {
 
 	/**
 	 * Выписывает новый счет
-	 * @param string     $phone    Телефон (0123456789, без плюса, только Россия)
-	 * @param float      $amount   Сумма
-	 * @param int        $txn_id   Код платежа
-	 * @param string     $comment  Комментарий
-	 * @param string     $lifetime Время жизни счета (пусто = 30 дней), максимум - 45 дней
-	 * @param bool|int   $alarm    Оповещение (0 - нет, 1 - sms, 2 - звонок), платно
-	 * @param bool       $create   Создать ли пользователя, если он не существует
+	 * @param string   $phone    Телефон (0123456789, без плюса, только Россия)
+	 * @param float    $amount   Сумма
+	 * @param string   $txn_id   Код счета
+	 * @param string   $comment  Комментарий
+	 * @param string   $lifetime Время жизни счета (пусто = 30 дней), максимум - 45 дней
+	 * @param bool|int $alarm    Оповещение (0 - нет, 1 - sms, 2 - звонок), платно
+	 * @param bool     $create   Создать ли пользователя, если он не существует
 	 * @return S\StatusResult
 	 */
 	public function createBill(
@@ -54,6 +54,40 @@ class Client {
 
 		$res = $this->client->createBill($query);
 		$res = new S\StatusResult($res->createBillResult);
+		return $res;
+	}
+
+	/**
+	 * Отменяет выписанный ранее счет
+	 * @param string $txn_id Код счета
+	 * @return int
+	 */
+	public function cancelBill($txn_id) {
+		$query = new SM\cancelBill();
+		$query->login = $this->login;
+		$query->password = $this->password;
+
+		$query->txn = $txn_id;
+
+		$res = $this->client->cancelBill($query);
+		$res = $res->cancelBillResult;
+		return $res;
+	}
+
+	/**
+	 * Проверяет состояние выписанного счета
+	 * @param string $txn_id
+	 * @return SM\checkBillResponse Код счета
+	 */
+	public function checkBill($txn_id) {
+		$query = new SM\checkBill();
+		$query->login = $this->login;
+		$query->password = $this->password;
+
+		$query->txn = $txn_id;
+
+		$res = $this->client->checkBill($query);
+		$res->status = new S\StatusBill($res->status);
 		return $res;
 	}
 

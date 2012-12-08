@@ -2,9 +2,18 @@
 namespace IShop\ServerMethods;
 
 class getBillList {
-	public $login; // string
-	public $password; // string
-	public $dateFrom; // string
-	public $dateTo; // string
-	public $status; // int
+	/** @var string */
+	public $login;
+
+	/** @var string */
+	public $password;
+
+	/** @var string */
+	public $dateFrom;
+
+	/** @var string */
+	public $dateTo;
+
+	/** @var int */
+	public $status;
 }
