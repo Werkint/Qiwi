@@ -8,7 +8,7 @@ class Client {
 	const CLIENT_WS = 'IShopClientWS.wsdl';
 	const SERVER_WS = 'IShopServerWS.wsdl';
 
-	const DATE_FORMAT = 'dd.MM.yyyy HH:mm:ss';
+	const DATE_FORMAT = 'd.m.Y H:i:s';
 
 	protected $login;
 	protected $password;
@@ -97,11 +97,13 @@ class Client {
 	}
 
 	/**
-	 * Возвращает список счетов
+	 * Возвращает список счетов в виде массива
+	 * 'id'     - id счета
+	 * 'status' - состояние
 	 * @param \DateTime $dateFrom Дата начала
 	 * @param \DateTime $dateTo   Дата конца (максимум - 31 день)
 	 * @param int|bool  $status   Статус (чтобы получить все счета - 0)
-	 * @return SM\GetBillListResponse
+	 * @return array
 	 */
 	public function getBillList(
 		\DateTime $dateFrom, \DateTime $dateTo, $status = false
@@ -115,7 +117,21 @@ class Client {
 		$query->status = (int)$status;
 
 		$res = $this->client->getBillList($query);
-		return $res;
+		if ($res->count > 0) {
+			$xml = new \DOMDocument();
+			$xml->loadXML($res->txns);
+			$xpath = new \DOMXPath($xml);
+			$ret = array();
+			$nodes = $xpath->query('/bills/bill');
+			foreach ($nodes as $node) {
+				$ret[] = array(
+					'id'     => $node->getAttribute('trm-txn-id'),
+					'status' => (int)$node->getAttribute('status'),
+				);
+			}
+			return $ret;
+		}
+		return array();
 	}
 
 }
