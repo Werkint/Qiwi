@@ -1,5 +1,5 @@
 <?php
-namespace IShop;
+namespace IShop\Soap;
 use IShop\ServerMethods as S;
 
 /**
@@ -11,7 +11,7 @@ use IShop\ServerMethods as S;
  * @copyright {copyright}
  * @package   {package}
  */
-class SoapClient extends \SoapClient {
+class Client extends \SoapClient {
 
 	const SERVER_URL = 'http://server.ishop.mw.ru/';
 

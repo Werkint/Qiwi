@@ -2,6 +2,7 @@
 namespace IShop;
 use IShop\ServerMethods as SM;
 use IShop\Status as S;
+use IShop\Soap;
 
 class Client {
 
@@ -10,22 +11,47 @@ class Client {
 
 	const DATE_FORMAT = 'd.m.Y H:i:s';
 
-	protected $login;
-	protected $password;
-
-	/** @var SoapClient */
-	protected $client;
-
 	protected function getResPath() {
 		return __DIR__ . '/../../res';
 	}
 
+	protected $login;
+	protected $password;
+
 	protected function __construct($login, $password) {
 		$this->login = $login;
 		$this->password = $password;
-		$this->client = new SoapClient(
-			$this->getResPath() . '/' . static::SERVER_WS
-		);
+	}
+
+	/** @var Soap\Client */
+	protected $client;
+
+	protected function getClient() {
+		if(!$this->client) {
+			$this->client = new Soap\Client(
+				$this->getResPath() . '/' . static::SERVER_WS
+			);
+		}
+		return $this->client;
+	}
+
+	/** @var Soap\Server */
+	protected $server;
+
+	protected function getServer() {
+		if(!$this->server) {
+			$this->server = new Soap\Server(
+				$this->getResPath() . '/' . static::CLIENT_WS
+			);
+		}
+		return $this->server;
+	}
+
+	/**
+	 * Обрабатывает входящий запрос
+	 */
+	public function processRequest() {
+		return $this->getServer()->processRequest();
 	}
 
 	/**
@@ -55,7 +81,7 @@ class Client {
 		$query->alarm = (int)$alarm;
 		$query->create = $create;
 
-		$res = $this->client->createBill($query);
+		$res = $this->getClient()->createBill($query);
 		$res = new S\StatusResult($res->createBillResult);
 		return $res;
 	}
@@ -72,7 +98,7 @@ class Client {
 
 		$query->txn = $txn_id;
 
-		$res = $this->client->cancelBill($query);
+		$res = $this->getClient()->cancelBill($query);
 		$res = $res->cancelBillResult;
 		return $res;
 	}
@@ -89,7 +115,7 @@ class Client {
 
 		$query->txn = $txn_id;
 
-		$res = $this->client->checkBill($query);
+		$res = $this->getClient()->checkBill($query);
 		$res->status = new S\StatusBill($res->status);
 		$res->date = new \DateTime($res->date);
 		$res->lifetime = new \DateTime($res->lifetime);
@@ -116,7 +142,7 @@ class Client {
 		$query->dateTo = $dateTo->format(static::DATE_FORMAT);
 		$query->status = (int)$status;
 
-		$res = $this->client->getBillList($query);
+		$res = $this->getClient()->getBillList($query);
 		if ($res->count > 0) {
 			$xml = new \DOMDocument();
 			$xml->loadXML($res->txns);
