@@ -25,20 +25,20 @@ class Server extends \SoapServer {
 		$this->wsdl = $wsdl;
 	}
 
-	protected $returnResult;
+	protected $callback;
 
-	public function processRequest() {
+	public function processRequest(callable $callback = null) {
 		$server = new \SoapServer(
 			$this->wsdl, array('classmap' => $this->classmap)
 		);
 		$server->setObject($this);
-		$this->returnResult = null;
+		$this->callback = $callback;
 		$server->handle();
-		return $this->returnResult;
 	}
 
 	public function updateBill($param) {
-		$this->returnResult = print_r($param, true);
+		$fn = $this->callback;
+		$fn(print_r($param, true));
 		return 0;
 	}
 
