@@ -49,7 +49,7 @@ class Server extends \SoapServer {
 		if ($param->login != $this->login) {
 			throw new E\LoginException('Wrong login: ' . $param->login);
 		}
-		$crypt = strtoupper(md5($param->txn . strtoupper(md5($this->password))));
+		$crypt = strtoupper(md5(iconv('utf-8', 'windows-1251', $param->txn) . strtoupper(md5(iconv('utf-8', 'windows-1251', $this->password)))));
 		if ($param->password != $crypt) {
 			throw new E\PasswordException('Wrong sign. Expected: ' . $crypt . ', got: ' . $param->password);
 		}
