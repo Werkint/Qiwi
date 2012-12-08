@@ -10,7 +10,7 @@
 		{
 			"name": "Bogdan Yurov",
 			"email":"bogdan@yurov.me"
-		},
+		}
 	],
 	"require":    {
 		"php":">=5.3"
