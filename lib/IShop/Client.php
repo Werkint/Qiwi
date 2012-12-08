@@ -1,8 +1,9 @@
 <?php
 namespace IShop;
-use IShop\ServerMethods as SM;
-use IShop\Status as S;
-use IShop\Soap;
+use
+	IShop\Soap,
+	IShop\ServerMethods as SM,
+	IShop\Status as S;
 
 class Client {
 
@@ -27,7 +28,7 @@ class Client {
 	protected $client;
 
 	protected function getClient() {
-		if(!$this->client) {
+		if (!$this->client) {
 			$this->client = new Soap\Client(
 				$this->getResPath() . '/' . static::SERVER_WS
 			);
@@ -39,9 +40,11 @@ class Client {
 	protected $server;
 
 	protected function getServer() {
-		if(!$this->server) {
+		if (!$this->server) {
 			$this->server = new Soap\Server(
-				$this->getResPath() . '/' . static::CLIENT_WS
+				$this->getResPath() . '/' . static::CLIENT_WS,
+				$this->login,
+				$this->password
 			);
 		}
 		return $this->server;
