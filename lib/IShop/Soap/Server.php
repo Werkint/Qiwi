@@ -39,7 +39,10 @@ class Server extends \SoapServer {
 
 	public function updateBill($param) {
 		$this->returnResult = print_r($param, true);
-		return 0;
+
+		$ret = new S\UpdateBill();
+		$ret->updateBillResult = 0;
+		return $ret;
 	}
 
 }

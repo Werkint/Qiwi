@@ -2,6 +2,6 @@
 namespace IShop\ServerMethods;
 
 class UpdateBill {
-	/** @var string */
+	/** @var int */
 	public $updateBillResult;
 }
