@@ -1,7 +1,7 @@
 <?php
 namespace IShop\ServerMethods;
 
-class getBillListResponse {
+class GetBillListResponse {
 	/** @var string */
 	public $txns;
 

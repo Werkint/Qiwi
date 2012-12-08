@@ -1,7 +1,7 @@
 <?php
 namespace IShop\ServerMethods;
 
-class cancelBill {
+class CancelBill {
 	/** @var string */
 	public $login;
 

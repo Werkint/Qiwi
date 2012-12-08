@@ -8,6 +8,8 @@ class Client {
 	const CLIENT_WS = 'IShopClientWS.wsdl';
 	const SERVER_WS = 'IShopServerWS.wsdl';
 
+	const DATE_FORMAT = 'dd.MM.yyyy HH:mm:ss';
+
 	protected $login;
 	protected $password;
 
@@ -28,17 +30,18 @@ class Client {
 
 	/**
 	 * Выписывает новый счет
-	 * @param string   $phone    Телефон (0123456789, без плюса, только Россия)
-	 * @param float    $amount   Сумма
-	 * @param string   $txn_id   Код счета
-	 * @param string   $comment  Комментарий
-	 * @param string   $lifetime Время жизни счета (пусто = 30 дней), максимум - 45 дней
-	 * @param bool|int $alarm    Оповещение (0 - нет, 1 - sms, 2 - звонок), платно
-	 * @param bool     $create   Создать ли пользователя, если он не существует
+	 * @param string    $phone    Телефон (0123456789, без плюса, только Россия)
+	 * @param float     $amount   Сумма
+	 * @param string    $txn_id   Код счета
+	 * @param string    $comment  Комментарий
+	 * @param \DateTime $lifetime Время жизни счета (пусто = 30 дней), максимум - 45 дней
+	 * @param bool|int  $alarm    Оповещение (0 - нет, 1 - sms, 2 - звонок), платно
+	 * @param bool      $create   Создать ли пользователя, если он не существует
 	 * @return S\StatusResult
 	 */
 	public function createBill(
-		$phone, $amount, $txn_id, $comment, $lifetime = '', $alarm = false, $create = true
+		$phone, $amount, $txn_id, $comment,
+		\DateTime $lifetime = null, $alarm = false, $create = true
 	) {
 		$query = new SM\CreateBill();
 		$query->login = $this->login;
@@ -48,7 +51,7 @@ class Client {
 		$query->amount = (string)$amount;
 		$query->comment = $comment;
 		$query->txn = $txn_id;
-		$query->lifetime = $lifetime;
+		$query->lifetime = $lifetime ? $lifetime->format(static::DATE_FORMAT) : '';
 		$query->alarm = (int)$alarm;
 		$query->create = $create;
 
@@ -88,6 +91,30 @@ class Client {
 
 		$res = $this->client->checkBill($query);
 		$res->status = new S\StatusBill($res->status);
+		$res->date = new \DateTime($res->date);
+		$res->lifetime = new \DateTime($res->lifetime);
+		return $res;
+	}
+
+	/**
+	 * Возвращает список счетов
+	 * @param \DateTime $dateFrom Дата начала
+	 * @param \DateTime $dateTo   Дата конца (максимум - 31 день)
+	 * @param int|bool  $status   Статус (чтобы получить все счета - 0)
+	 * @return SM\GetBillListResponse
+	 */
+	public function getBillList(
+		\DateTime $dateFrom, \DateTime $dateTo, $status = false
+	) {
+		$query = new SM\GetBillList();
+		$query->login = $this->login;
+		$query->password = $this->password;
+
+		$query->dateFrom = $dateFrom->format(static::DATE_FORMAT);
+		$query->dateTo = $dateTo->format(static::DATE_FORMAT);
+		$query->status = (int)$status;
+
+		$res = $this->client->getBillList($query);
 		return $res;
 	}
 

@@ -1,7 +1,7 @@
 <?php
 namespace IShop\ServerMethods;
 
-class getBillList {
+class GetBillList {
 	/** @var string */
 	public $login;
 

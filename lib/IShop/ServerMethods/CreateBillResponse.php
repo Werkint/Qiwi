@@ -1,7 +1,7 @@
 <?php
 namespace IShop\ServerMethods;
 
-class createBillResponse {
+class CreateBillResponse {
 	/** @var int */
 	public $createBillResult;
 }
