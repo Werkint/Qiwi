@@ -1,0 +1,23 @@
+{
+	"name":       "nick4fake/ishop",
+	"type":       "library",
+	"description":"QIWI payment system SOAP library",
+	"license":    "own",
+	"authors":    [
+		{
+			"name": "ООО \"КИВИ Кошелек\""
+		},
+		{
+			"name": "Bogdan Yurov",
+			"email":"bogdan@yurov.me"
+		},
+	],
+	"require":    {
+		"php":">=5.3"
+	},
+	"autoload":   {
+		"psr-0":{
+			"IShop":"lib/"
+		}
+	}
+}
