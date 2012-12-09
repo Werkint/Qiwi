@@ -3,6 +3,9 @@ namespace IShop\ServerMethods;
 use IShop\Status\StatusBill;
 
 class CheckBillResponse {
+	/** @var string Идентификатор платежа */
+	public $id;
+
 	/** @var string Идентификатор (номер телефона) */
 	public $user;
 

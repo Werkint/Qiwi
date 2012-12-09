@@ -123,6 +123,7 @@ class Client {
 		$query->txn = $txn_id;
 
 		$res = $this->getClient()->checkBill($query);
+		$res->id = $txn_id;
 		$res->status = new S\StatusBill($res->status);
 		$res->date = new \DateTime($res->date);
 		$res->lifetime = new \DateTime($res->lifetime);
