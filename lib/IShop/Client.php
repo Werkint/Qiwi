@@ -42,6 +42,7 @@ class Client {
 	protected function getServer() {
 		if (!$this->server) {
 			$this->server = new Soap\Server(
+				$this,
 				$this->getResPath() . '/' . static::CLIENT_WS,
 				$this->login,
 				$this->password

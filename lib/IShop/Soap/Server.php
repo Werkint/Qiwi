@@ -3,7 +3,7 @@ namespace IShop\Soap;
 use
 	IShop\ServerMethods as S,
 	IShop\Exception as E,
-	IShop\Status;
+	IShop\Client as ClientProcessor;
 
 class Server extends \SoapServer {
 
@@ -25,11 +25,17 @@ class Server extends \SoapServer {
 	protected $login;
 	protected $password;
 
-	public function __construct($wsdl, $login, $password) {
+	/** @var ClientProcessor */
+	protected $client;
+
+	public function __construct(
+		ClientProcessor $client, $wsdl, $login, $password
+	) {
 		$this->createDefaultClassmap();
 		$this->wsdl = $wsdl;
 		$this->login = $login;
 		$this->password = $password;
+		$this->client = $client;
 	}
 
 	protected $callback;
@@ -54,9 +60,12 @@ class Server extends \SoapServer {
 			throw new E\PasswordException('Wrong sign. Expected: ' . $crypt . ', got: ' . $param->password);
 		}
 
+		// Обновляем, как рекомендует QIWI, статус
+		// Это нужно для дополнительной защиты
+		$param = $this->client->checkBill($param->txn);
+
 		// Вызываем обработчик, передав расшифрованный статус
 		$callback = $this->callback;
-		$param = new Status\Bill($param->txn, $param->status);
 		$result = $callback($param);
 
 		// Выдаем ответ QIWI
