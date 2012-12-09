@@ -13,8 +13,7 @@
 		}
 	],
 	"require":     {
-		"php": ">=5.3",
-		"nick4fake/wse-php": "*"
+		"php": ">=5.3"
 	},
 	"autoload":    {
 		"psr-0": {
