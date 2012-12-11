@@ -19,7 +19,7 @@ class Client {
 	protected $login;
 	protected $password;
 
-	protected function __construct($login, $password) {
+	public function __construct($login, $password) {
 		$this->login = $login;
 		$this->password = $password;
 	}
