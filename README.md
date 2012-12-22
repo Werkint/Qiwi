@@ -21,7 +21,7 @@ IShop
 <?php
 namespace MyOwnMegaPrefix\Qiwi;
 
-use MyOwnMegaPrefix\Settingsб
+use MyOwnMegaPrefix\Settings,
     IShop;
 
 class Qiwi extends IShop\Client
