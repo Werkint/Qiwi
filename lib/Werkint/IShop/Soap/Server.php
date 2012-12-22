@@ -9,7 +9,7 @@ class Server extends \SoapServer
 {
 
     protected $classmapMethods = array(
-        'tns:updateBill' => 'UpdateBill',
+        'tns:updateBill'         => 'UpdateBill',
         'tns:updateBillResponse' => 'UpdateBillResponse',
     );
     protected $classmap;

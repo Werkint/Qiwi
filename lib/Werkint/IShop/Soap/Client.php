@@ -17,13 +17,13 @@ class Client extends \SoapClient
     const SERVER_URL = 'http://server.ishop.mw.ru/';
 
     protected $classmapMethods = array(
-        'checkBill' => 'CheckBill',
-        'checkBillResponse' => 'CheckBillResponse',
-        'cancelBill' => 'CancelBill',
-        'cancelBillResponse' => 'CancelBillResponse',
-        'createBill' => 'CreateBill',
-        'createBillResponse' => 'CreateBillResponse',
-        'getBillList' => 'GetBillList',
+        'checkBill'           => 'CheckBill',
+        'checkBillResponse'   => 'CheckBillResponse',
+        'cancelBill'          => 'CancelBill',
+        'cancelBillResponse'  => 'CancelBillResponse',
+        'createBill'          => 'CreateBill',
+        'createBillResponse'  => 'CreateBillResponse',
+        'getBillList'         => 'GetBillList',
         'getBillListResponse' => 'GetBillListResponse',
     );
     protected $classmap;
@@ -53,7 +53,7 @@ class Client extends \SoapClient
     public function checkBill(S\CheckBill $parameters)
     {
         return $this->__soapCall('checkBill', array($parameters), array(
-                'uri' => static::SERVER_URL,
+                'uri'        => static::SERVER_URL,
                 'soapaction' => '',
             )
         );
@@ -68,7 +68,7 @@ class Client extends \SoapClient
     public function getBillList(S\GetBillList $parameters)
     {
         return $this->__soapCall('getBillList', array($parameters), array(
-                'uri' => static::SERVER_URL,
+                'uri'        => static::SERVER_URL,
                 'soapaction' => '',
             )
         );
@@ -83,7 +83,7 @@ class Client extends \SoapClient
     public function cancelBill(S\CancelBill $parameters)
     {
         return $this->__soapCall('cancelBill', array($parameters), array(
-                'uri' => static::SERVER_URL,
+                'uri'        => static::SERVER_URL,
                 'soapaction' => '',
             )
         );
@@ -98,7 +98,7 @@ class Client extends \SoapClient
     public function createBill(S\CreateBill $parameters)
     {
         return $this->__soapCall('createBill', array($parameters), array(
-                'uri' => static::SERVER_URL,
+                'uri'        => static::SERVER_URL,
                 'soapaction' => '',
             )
         );

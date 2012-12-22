@@ -1,23 +1,23 @@
 {
-	"name":        "werkint/ishop",
-	"type":        "library",
-	"description": "Платежная библиотека для QIWI через SOAP",
-	"license":     "own",
-	"authors":     [
-		{
-			"name": "ООО \"КИВИ Кошелек\""
-		},
-		{
-			"name":  "Bogdan Yurov",
-			"email": "bogdan@yurov.me"
-		}
-	],
-	"require":     {
-		"php": ">=5.3"
-	},
-	"autoload":    {
-		"psr-0": {
-			"Werkin\\IShop": "lib/"
-		}
-	}
+    "name":        "werkint/ishop",
+    "type":        "library",
+    "description": "Платежная библиотека для QIWI через SOAP",
+    "license":     "own",
+    "authors":     [
+        {
+            "name": "ООО \"КИВИ Кошелек\""
+        },
+        {
+            "name":  "Bogdan Yurov",
+            "email": "bogdan@yurov.me"
+        }
+    ],
+    "require":     {
+        "php": ">=5.3"
+    },
+    "autoload":    {
+        "psr-0": {
+            "Werkin\\IShop": "lib/"
+        }
+    }
 }

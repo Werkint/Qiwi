@@ -167,7 +167,7 @@ class Client
             $nodes = $xpath->query('/bills/bill');
             foreach ($nodes as $node) {
                 $ret[] = array(
-                    'id' => $node->getAttribute('trm-txn-id'),
+                    'id'     => $node->getAttribute('trm-txn-id'),
                     'status' => (int)$node->getAttribute('status'),
                 );
             }
