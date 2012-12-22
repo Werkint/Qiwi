@@ -1,5 +1,5 @@
 {
-	"name":        "nick4fake/ishop",
+	"name":        "werkint/ishop",
 	"type":        "library",
 	"description": "Платежная библиотека для QIWI через SOAP",
 	"license":     "own",
@@ -17,7 +17,7 @@
 	},
 	"autoload":    {
 		"psr-0": {
-			"IShop": "lib/"
+			"Werkin\\IShop": "lib/"
 		}
 	}
 }

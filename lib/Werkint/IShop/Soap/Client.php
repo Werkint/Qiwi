@@ -1,6 +1,6 @@
 <?php
-namespace IShop\Soap;
-use IShop\ServerMethods as S;
+namespace Werkint\IShop\Soap;
+use Werkint\IShop\ServerMethods as S;
 
 /**
  * Client class

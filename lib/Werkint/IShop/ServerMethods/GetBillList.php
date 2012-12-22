@@ -1,7 +1,7 @@
 <?php
-namespace IShop\ServerMethods;
+namespace Werkint\IShop\ServerMethods;
 
-class UpdateBillResponse
+class GetBillList
 {
     /** @var string */
     public $login;
@@ -10,7 +10,10 @@ class UpdateBillResponse
     public $password;
 
     /** @var string */
-    public $txn;
+    public $dateFrom;
+
+    /** @var string */
+    public $dateTo;
 
     /** @var int */
     public $status;

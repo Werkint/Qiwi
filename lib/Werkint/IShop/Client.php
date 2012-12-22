@@ -1,9 +1,9 @@
 <?php
-namespace IShop;
+namespace Werkint\IShop;
 use
-    IShop\Soap,
-    IShop\ServerMethods as SM,
-    IShop\Status as S;
+    Werkint\IShop\Soap,
+    Werkint\IShop\ServerMethods as SM,
+    Werkint\IShop\Status as S;
 
 class Client
 {

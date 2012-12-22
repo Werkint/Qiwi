@@ -1,5 +1,5 @@
 <?php
-namespace IShop\Exception;
+namespace Werkint\IShop\Exception;
 
 /**
  * Выкидывается, если логин (код магазина) неправильный

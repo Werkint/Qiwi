@@ -22,7 +22,7 @@ IShop
 namespace MyOwnMegaPrefix\Qiwi;
 
 use MyOwnMegaPrefix\Settings,
-    IShop;
+    Werkint\IShop;
 
 class Qiwi extends IShop\Client
 {
@@ -44,7 +44,7 @@ class Qiwi extends IShop\Client
 ### Код сервера (принимает запросы киви)
 
 ```php
-use IShop\ServerMethods\CheckBillResponse as QiwiBill;
+use Werkint\IShop\ServerMethods\CheckBillResponse as QiwiBill;
 $callback = function ($bill) use (&$myMegaService) {
     /** @var QiwiBill $bill */
     $row = $myMegaService->findByKey( // Ищем чек в нашей базе

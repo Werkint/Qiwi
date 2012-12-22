@@ -1,6 +1,6 @@
 <?php
-namespace IShop\ServerMethods;
-use IShop\Status\StatusBill;
+namespace Werkint\IShop\ServerMethods;
+use Werkint\IShop\Status\StatusBill;
 
 class CheckBillResponse
 {

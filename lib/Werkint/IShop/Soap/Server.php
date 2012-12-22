@@ -1,9 +1,9 @@
 <?php
-namespace IShop\Soap;
+namespace Werkint\IShop\Soap;
 use
-    IShop\ServerMethods as S,
-    IShop\Exception as E,
-    IShop\Client as ClientProcessor;
+    Werkint\IShop\ServerMethods as S,
+    Werkint\IShop\Exception as E,
+    Werkint\IShop\Client as ClientProcessor;
 
 class Server extends \SoapServer
 {

@@ -1,5 +1,5 @@
 <?php
-namespace IShop\Status;
+namespace Werkint\IShop\Status;
 
 class StatusBill extends Status
 {

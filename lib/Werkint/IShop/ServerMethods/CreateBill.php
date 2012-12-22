@@ -1,5 +1,5 @@
 <?php
-namespace IShop\ServerMethods;
+namespace Werkint\IShop\ServerMethods;
 
 class CreateBill
 {
