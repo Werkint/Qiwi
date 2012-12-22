@@ -1,7 +1,8 @@
 <?php
 namespace IShop\ServerMethods;
 
-class UpdateBill {
-	/** @var int */
-	public $updateBillResult;
+class UpdateBill
+{
+    /** @var int */
+    public $updateBillResult;
 }

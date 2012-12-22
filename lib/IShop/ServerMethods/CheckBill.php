@@ -1,13 +1,14 @@
 <?php
 namespace IShop\ServerMethods;
 
-class CheckBill {
-	/** @var string */
-	public $login;
+class CheckBill
+{
+    /** @var string */
+    public $login;
 
-	/** @var string */
-	public $password;
+    /** @var string */
+    public $password;
 
-	/** @var string */
-	public $txn;
+    /** @var string */
+    public $txn;
 }

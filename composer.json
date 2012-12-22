@@ -1,7 +1,7 @@
 {
 	"name":        "nick4fake/ishop",
 	"type":        "library",
-	"description": "QIWI payment system SOAP library",
+	"description": "Платежная библиотека для QIWI через SOAP",
 	"license":     "own",
 	"authors":     [
 		{

@@ -1,10 +1,11 @@
 <?php
 namespace IShop\ServerMethods;
 
-class GetBillListResponse {
-	/** @var string */
-	public $txns;
+class GetBillListResponse
+{
+    /** @var string */
+    public $txns;
 
-	/** @var int */
-	public $count;
+    /** @var int */
+    public $count;
 }
