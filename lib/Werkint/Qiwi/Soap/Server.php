@@ -51,10 +51,7 @@ class Server extends \SoapServer
         $this->callback = $callback;
         $server->handle();
         $this->callback = null;
-        return $this->test;
     }
-
-    protected $test;
 
     public function updateBill(S\UpdateBillResponse $param)
     {
@@ -70,7 +67,6 @@ class Server extends \SoapServer
         // Обновляем, как рекомендует QIWI, статус
         // Это нужно для дополнительной защиты
         $param = $this->client->checkBill($param->txn);
-        $this->test = $param;
 
         // Вызываем обработчик, передав расшифрованный статус
         $callback = $this->callback;
