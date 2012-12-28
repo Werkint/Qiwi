@@ -62,7 +62,7 @@ class Client
      */
     public function processRequest(callable $callback)
     {
-        $this->getServer()->processRequest(
+        return $this->getServer()->processRequest(
             $callback
         );
     }
