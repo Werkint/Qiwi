@@ -1,7 +1,7 @@
 <?php
-namespace Werkint\IShop\ServerMethods;
+namespace Werkint\Qiwi\ServerMethods;
 
-class GetBillList
+class UpdateBillResponse
 {
     /** @var string */
     public $login;
@@ -10,10 +10,7 @@ class GetBillList
     public $password;
 
     /** @var string */
-    public $dateFrom;
-
-    /** @var string */
-    public $dateTo;
+    public $txn;
 
     /** @var int */
     public $status;

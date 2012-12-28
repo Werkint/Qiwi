@@ -1,6 +1,6 @@
 <?php
-namespace Werkint\IShop\Soap;
-use Werkint\IShop\ServerMethods as S;
+namespace Werkint\Qiwi\Soap;
+use Werkint\Qiwi\ServerMethods as S;
 
 /**
  * Client class

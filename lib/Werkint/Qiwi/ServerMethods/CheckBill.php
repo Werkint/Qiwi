@@ -1,7 +1,7 @@
 <?php
-namespace Werkint\IShop\ServerMethods;
+namespace Werkint\Qiwi\ServerMethods;
 
-class UpdateBillResponse
+class CheckBill
 {
     /** @var string */
     public $login;
@@ -11,7 +11,4 @@ class UpdateBillResponse
 
     /** @var string */
     public $txn;
-
-    /** @var int */
-    public $status;
 }

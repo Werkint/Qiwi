@@ -1,5 +1,5 @@
 <?php
-namespace Werkint\IShop\Exception;
+namespace Werkint\Qiwi\Exception;
 
 /**
  * Выкидывается, если логин (код магазина) неправильный

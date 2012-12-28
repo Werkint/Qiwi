@@ -1,9 +1,9 @@
 <?php
-namespace Werkint\IShop\Soap;
+namespace Werkint\Qiwi\Soap;
 use
-    Werkint\IShop\ServerMethods as S,
-    Werkint\IShop\Exception as E,
-    Werkint\IShop\Client as ClientProcessor;
+    Werkint\Qiwi\ServerMethods as S,
+    Werkint\Qiwi\Exception as E,
+    Werkint\Qiwi\Client as ClientProcessor;
 
 class Server extends \SoapServer
 {

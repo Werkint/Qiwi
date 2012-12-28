@@ -1,5 +1,5 @@
 {
-    "name":        "werkint/ishop",
+    "name":        "werkint/qiwi",
     "type":        "library",
     "description": "Платежная библиотека для QIWI через SOAP",
     "license":     "own",
@@ -17,7 +17,7 @@
     },
     "autoload":    {
         "psr-0": {
-            "Werkin\\IShop": "lib/"
+            "Werkint\\Qiwi": "lib/"
         }
     }
 }

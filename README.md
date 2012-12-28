@@ -22,9 +22,9 @@ IShop
 namespace MyOwnMegaPrefix\Qiwi;
 
 use MyOwnMegaPrefix\Settings,
-    Werkint\IShop;
+    Werkint\Qiwi;
 
-class Qiwi extends IShop\Client
+class MyQiwi extends Qiwi\Client
 {
     protected $settings;
 
@@ -44,7 +44,7 @@ class Qiwi extends IShop\Client
 ### Код сервера (принимает запросы киви)
 
 ```php
-use Werkint\IShop\ServerMethods\CheckBillResponse as QiwiBill;
+use Werkint\Qiwi\ServerMethods\CheckBillResponse as QiwiBill;
 $callback = function ($bill) use (&$myMegaService) {
     /** @var QiwiBill $bill */
     $row = $myMegaService->findByKey( // Ищем чек в нашей базе
@@ -57,7 +57,7 @@ $callback = function ($bill) use (&$myMegaService) {
     return $myMegaService->status(); // Код возврата для сервера QIWI. 0 - все нормально
 };
 // Вызываем метод обработки запроса
-$theIShopObject->processRequest($callback);
+$theQiwiObject->processRequest($callback);
 // Если мы отдадим text/html, qiwi не пропустит платеж (да и вообще, надо протоколу следовать)
 header('Content-Type: text/xml; charset=utf-8');
 ```

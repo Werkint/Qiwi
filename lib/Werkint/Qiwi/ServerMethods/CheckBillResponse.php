@@ -1,6 +1,6 @@
 <?php
-namespace Werkint\IShop\ServerMethods;
-use Werkint\IShop\Status\StatusBill;
+namespace Werkint\Qiwi\ServerMethods;
+use Werkint\Qiwi\Status\StatusBill;
 
 class CheckBillResponse
 {

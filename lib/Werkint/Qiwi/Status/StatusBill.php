@@ -1,5 +1,5 @@
 <?php
-namespace Werkint\IShop\Status;
+namespace Werkint\Qiwi\Status;
 
 class StatusBill extends Status
 {

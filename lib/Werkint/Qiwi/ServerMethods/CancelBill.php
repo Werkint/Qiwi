@@ -1,7 +1,7 @@
 <?php
-namespace Werkint\IShop\ServerMethods;
+namespace Werkint\Qiwi\ServerMethods;
 
-class CheckBill
+class CancelBill
 {
     /** @var string */
     public $login;

@@ -1,5 +1,5 @@
 <?php
-namespace Werkint\IShop\Exception;
+namespace Werkint\Qiwi\Exception;
 
 /**
  * Выкидывается, если проверка подписи сервера не прошла

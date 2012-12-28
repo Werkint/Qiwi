@@ -1,5 +1,5 @@
 <?php
-namespace Werkint\IShop\ServerMethods;
+namespace Werkint\Qiwi\ServerMethods;
 
 class CancelBillResponse
 {

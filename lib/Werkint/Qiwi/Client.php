@@ -1,9 +1,9 @@
 <?php
-namespace Werkint\IShop;
+namespace Werkint\Qiwi;
 use
-    Werkint\IShop\Soap,
-    Werkint\IShop\ServerMethods as SM,
-    Werkint\IShop\Status as S;
+    Werkint\Qiwi\Soap,
+    Werkint\Qiwi\ServerMethods as SM,
+    Werkint\Qiwi\Status as S;
 
 class Client
 {
