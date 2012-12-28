@@ -15,7 +15,7 @@ class Client
 
     protected function getResPath()
     {
-        return __DIR__ . '/../../res';
+        return __DIR__ . '/../../../res';
     }
 
     protected $login;
