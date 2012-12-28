@@ -16,7 +16,7 @@ class Server extends \SoapServer
 
     protected function createDefaultClassmap()
     {
-        $namespace = 'Qiwi\ServerMethods';
+        $namespace = 'Werkint\Qiwi\ServerMethods';
         $this->classmap = array();
         foreach ($this->classmapMethods as $method => $binding) {
             $this->classmap[$method] = $namespace . '\\' . $binding;

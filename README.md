@@ -1,4 +1,4 @@
-IShop
+Werkint Qiwi
 ========
 
 # Платежная библиотека для QIWI через SOAP.
