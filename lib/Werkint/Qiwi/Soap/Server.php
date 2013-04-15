@@ -9,8 +9,8 @@ class Server extends \SoapServer
 {
 
     protected $classmapMethods = array(
-        'tns:updateBill'         => 'UpdateBill',
-        'tns:updateBillResponse' => 'UpdateBillResponse',
+        'updateBill'         => 'UpdateBill',
+        'updateBillResponse' => 'UpdateBillResponse',
     );
     protected $classmap;
 
@@ -53,7 +53,7 @@ class Server extends \SoapServer
         $this->callback = null;
     }
 
-    public function updateBill(S\UpdateBillResponse $param)
+    public function updateBill(S\UpdateBill $param)
     {
         // Проверки подписи
         if ($param->login != $this->login) {
@@ -73,7 +73,7 @@ class Server extends \SoapServer
         $result = $callback($param);
 
         // Выдаем ответ QIWI
-        $ret = new S\UpdateBill();
+        $ret = new S\UpdateBillResponse();
         $ret->updateBillResult = $result;
         return $ret;
     }
